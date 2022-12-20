@@ -1,25 +1,47 @@
+import React from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* {Header()} <header>Header</header>;       */}
+      <Header />
+      {/* <Friend /> */}
+      {/* {Friend('In')}
+      {Friend('Pink')}
+      {Friend('Bo')} */}
+      <Friend name="In" age="20" /> {/* Friend({ name: 'In' })  */}
+      {Friend({
+        name: 'In',
+        age: '20'
+      })}
+      <Friend name="Pink" />
+      <Friend name="Bo" />
+      <Friend name="Yok" />
     </div>
   );
 }
+
+function Header() {
+  return <header>Header</header>;
+}
+
+const Friend = props => {
+  props.name = 'jack';
+  props.age = 5;
+  return (
+    <h1>
+      {props.name} {props.age}
+    </h1>
+  );
+};
+
+// class App extends React.Component {
+//   render() {
+//     return <div className="App">Hello Class Component</div>;
+//   }
+// }
 
 export default App;
