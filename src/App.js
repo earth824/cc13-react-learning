@@ -1,25 +1,34 @@
 import logo from './logo.svg';
-import './App.css';
+import style from './css-module.module.css';
+// import './custom.css';
+// import './App.css';
 
+// 1. Inline style
+// function App() {
+//   // <div style="border: 1px solid blue; border-radius: 8px"></div>;
+//   return (
+//     <div
+//       style={{
+//         border: '1px solid blue',
+//         width: 600,
+//         height: '400px',
+//         borderRadius: '8px',
+//         ['background-color']: 'red'
+//       }}
+//     >
+//       Hello
+//     </div>
+//   );
+// }
+
+// 2. External CSS
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div className={style.module}></div>;
 }
+
+// 3. CSS module
+
+// 4. CSS in JS
+// ex. styled-component
 
 export default App;
