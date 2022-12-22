@@ -71,18 +71,37 @@ import { useState } from 'react';
 //   );
 // }
 
+import React from 'react';
 import ShowCount from './components/ShowCount';
 import Button from './components/Button';
 
 function App() {
+  const [count, setCount] = React.useState(0);
   console.log('App run');
+
   return (
     <div style={{ textAlign: 'center' }}>
-      <ShowCount />
-      <Button></Button>
-      <Button></Button>
+      <ShowCount count={count} />
+      <Button
+        content="+"
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      ></Button>
+      <Button
+        content="-"
+        onClick={() => {
+          if (count > 0) setCount(count - 1);
+        }}
+      ></Button>
+      <br />
+      <ChildButton>Child Button</ChildButton>
     </div>
   );
+}
+
+function ChildButton(props) {
+  return <button>{props.children}</button>;
 }
 
 export default App;

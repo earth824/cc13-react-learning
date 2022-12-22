@@ -1,4 +1,4 @@
-export default function Button() {
+export default function Button(props) {
   console.log('Button run');
-  return <button>+</button>;
+  return <button onClick={props.onClick}>{props.content}</button>;
 }
