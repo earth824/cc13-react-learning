@@ -3,42 +3,57 @@ import './App.css';
 import Header from './components/Header';
 import Content from './components/Content';
 import LanguageContext from './contexts/LanguageContext';
-
-const langObj = {
-  EN: {
-    'form.email.text': 'Email',
-    'form.email.placeholder': 'Enter email',
-    'form.password.text': 'Password',
-    'form.password.placeholder': 'Enter password',
-    'display.lang.en': 'EN',
-    'display.lang.th': 'TH'
-  },
-  TH: {
-    'form.email.text': 'อีเมล',
-    'form.email.placeholder': 'กรุณากรอกอีเมล',
-    'form.password.text': 'รหัสผ่าน',
-    'form.password.placeholder': 'กรุณากรอกรหัสผ่าน',
-    'display.lang.en': 'อังกฤษ',
-    'display.lang.th': 'ไทย'
-  }
-};
+import { LanguageContextProvider } from './contexts/LanguageContext';
+import ThemeContextProvider from './contexts/ThemeContext';
 
 function App() {
-  const [lang, setLang] = useState('EN');
-
-  const changeLang = language => setLang(language);
-
   return (
     <div>
-      <LanguageContext.Provider
-        value={{ lang, changeLang, langObj: langObj[lang] }}
-      >
-        <Header />
-        <Content />
-      </LanguageContext.Provider>
+      <ThemeContextProvider>
+        <LanguageContextProvider>
+          <Header />
+          <Content />
+        </LanguageContextProvider>
+      </ThemeContextProvider>
     </div>
   );
 }
+
+// const langObj = {
+//   EN: {
+//     'form.email.text': 'Email',
+//     'form.email.placeholder': 'Enter email',
+//     'form.password.text': 'Password',
+//     'form.password.placeholder': 'Enter password',
+//     'display.lang.en': 'EN',
+//     'display.lang.th': 'TH'
+//   },
+//   TH: {
+//     'form.email.text': 'อีเมล',
+//     'form.email.placeholder': 'กรุณากรอกอีเมล',
+//     'form.password.text': 'รหัสผ่าน',
+//     'form.password.placeholder': 'กรุณากรอกรหัสผ่าน',
+//     'display.lang.en': 'อังกฤษ',
+//     'display.lang.th': 'ไทย'
+//   }
+// };
+
+// function App() {
+//   const [lang, setLang] = useState('EN');
+
+//   const changeLang = language => setLang(language);
+
+//   return (
+//     <div>
+//       <LanguageContext.Provider
+//         value={{ lang, changeLang, langObj: langObj[lang] }}
+//       >
+//         <Header />
+//         <Content />
+//       </LanguageContext.Provider>
+//     </div>
+//   );
+// }
 
 // const CountContext = createContext();
 
